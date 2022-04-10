@@ -1,33 +1,36 @@
-# What is this?
+## Nodejs Sequelize RESTAPI PostgreSQL
+
 This is a simple REST API using Javascript Technologies and PostgreSQL.
+
 - nodejs
 - express
 - postgreSQL
 - sequelize
-- babel 
 
 # Project Structure
-```
-    .
-    ├── package.json
-    ├── package-lock.json
-    ├── README.md
-    ├── sql
-    │   └── db.sql
-    └── src
-        ├── app.js
-        ├── controllers
-        │   ├── project.controller.js
-        │   └── task.controller.js
-        ├── database
-        │   └── database.js
-        ├── index.js
-        ├── models
-        │   ├── Project.js
-        │   └── Task.js
-        └── routes
-            ├── projects.js
-            └── tasks.js
 
-    6 directories, 13 files
+```bash
+.
+├── package.json
+├── requests
+│   ├── projects.http
+│   └── tasks.http
+├── sql
+│   └── db.sql
+└── src
+    ├── app.js
+    ├── controllers
+    │   ├── project.controller.js
+    │   └── task.controller.js
+    ├── database
+    │   └── database.js
+    ├── index.js
+    ├── models
+    │   ├── Project.js
+    │   └── Task.js
+    └── routes
+        ├── projects.routes.js
+        └── tasks.routes.js
+
+7 directories, 15 files
 ```
