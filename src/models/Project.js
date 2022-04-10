@@ -1,32 +1,32 @@
-const Sequelize = require('sequelize');
-const { sequelize } = require('../database/database');
+import { DataTypes } from "sequelize";
+import { sequelize } from "../database/database.js";
+import { Task } from "./Task.js";
 
-const Task = require('./Task');
-
-const Project = sequelize.define('projects', {
+export const Project = sequelize.define(
+  "projects",
+  {
     id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
     },
     name: {
-        type: Sequelize.STRING
+      type: DataTypes.STRING,
     },
     priority: {
-        type: Sequelize.INTEGER
+      type: DataTypes.INTEGER,
     },
     description: {
-        type: Sequelize.STRING
+      type: DataTypes.STRING,
     },
-    deliverydate: {
-        type: Sequelize.DATE
-    }
-}, {
-        timestamps: false
-    });
+  },
+  {
+    timestamps: false,
+  }
+);
 
-module.exports = Project;
-
-Project.hasMany(Task, { foreinkey: 'projectid', sourceKey: 'id' });
-Task.belongsTo(Project, { foreinkey: 'projectid', targetId: 'id' });
-
-module.exports = Project;
+Project.hasMany(Task, {
+  foreinkey: "projectId",
+  sourceKey: "id",
+});
+Task.belongsTo(Project, { foreinkey: "projectId", targetId: "id" });

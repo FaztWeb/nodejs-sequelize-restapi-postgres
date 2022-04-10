@@ -1,23 +1,23 @@
-const Sequelize = require('sequelize');
-const { sequelize } = require('../database/database');
+import { DataTypes } from "sequelize";
+import { sequelize } from "../database/database.js";
 
-
-const Task = sequelize.define('task', {
+export const Task = sequelize.define(
+  "task",
+  {
     id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
     },
     name: {
-        type: Sequelize.STRING
+      type: DataTypes.STRING,
     },
     done: {
-        type: Sequelize.BOOLEAN
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
-    projectid: {
-        type: Sequelize.INTEGER
-    }
-}, {
-    timestamps: false
-});
-
-module.exports = Task;
+  },
+  {
+    timestamps: false,
+  }
+);

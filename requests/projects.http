@@ -1,0 +1,23 @@
+@api = http://localhost:4000
+
+### projects
+GET {{api}}/api/projects
+
+### Create Project
+POST {{api}}/api/projects
+Content-Type: application/json
+
+{
+  "name": "game development 2",
+  "description": "a mobile game development",
+  "priority": 3
+}
+
+### get project
+GET {{api}}/api/projects/4
+
+### delete project
+DELETE {{api}}/api/projects/5
+
+### get tasks for project
+GET {{api}}/api/projects/8/tasks
