@@ -7,7 +7,13 @@ This is a simple REST API using Javascript Technologies and PostgreSQL.
 - postgreSQL
 - sequelize
 
-# Project Structure
+## Modeling
+
+This is the basic relationship that we are using in this example
+
+![](./docs/diagram.png)
+
+## Project Structure
 
 ```bash
 .
