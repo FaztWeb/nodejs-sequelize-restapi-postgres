@@ -1,0 +1,15 @@
+Table project {
+  id int [PK]
+  name varchar
+  priority int
+  description text
+}
+
+Table task {    
+  id int [PK]
+  name varchar
+  done boolean
+  projectId int
+}
+
+Ref: project.id < task.projectId
