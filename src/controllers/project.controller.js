@@ -53,35 +53,22 @@ export async function getProject(req, res) {
   }
 }
 
-export async function updateProject(req, res) {
-  const { id } = req.params;
-  const { name, priority, description, deliverydate } = req.body;
+export const updateProject = async (req, res) => {
   try {
-    const projects = await Project.findAll({
-      atributes: ["id", "name", "priority", "description", "deliverydate"],
-      where: {
-        id,
-      },
-    });
-    if (projects.length > 0) {
-      projects.forEach(async (project) => {
-        await project.update({
-          // name: name ? name : project.name,
-          name,
-          priority,
-          description,
-          deliverydate,
-        });
-      });
-      return res.json({
-        message: "Project Updated",
-        data: projects,
-      });
-    }
+    const { id } = req.params;
+    const { name, priority, description } = req.body;
+
+    const project = await Project.findByPk(id);
+    project.name = name;
+    project.priority = priority;
+    project.description = description;
+    await project.save();
+
+    res.json(project);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
-}
+};
 
 export async function deleteProject(req, res) {
   const { id } = req.params;
