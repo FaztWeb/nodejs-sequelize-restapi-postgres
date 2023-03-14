@@ -19,6 +19,9 @@ export const Project = sequelize.define(
     description: {
       type: DataTypes.STRING,
     },
+    deliverydate: {
+      type: DataTypes.DATE,
+    }
   },
   {
     timestamps: false,
